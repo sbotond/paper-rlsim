@@ -1,6 +1,6 @@
 # Assessing biasing factors in Illumina RNA-seq protocols through realistic simulations
 
-![header](![rlsim architecture](https://raw.github.com/sbotond/rlsim/master/doc/pix/rlsim_main.png)
+![header](https://github.com/sbotond/paper-rlsim/blob/master/Info/head.png)
 
 ## Reference
 
