@@ -1,5 +1,7 @@
 # Assessing biasing factors in Illumina RNA-seq protocols through realistic simulations
 
+![header](![rlsim architecture](https://raw.github.com/sbotond/rlsim/master/doc/pix/rlsim_main.png)
+
 ## Reference
 
 This repository contains the analysis pipeline, the description of workflow and the results presented in the manuscript:
