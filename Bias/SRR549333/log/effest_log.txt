@@ -1,0 +1,26 @@
+[13-05-14 21:23:42] Assumed mean efficiency: 0.87
+[13-05-14 21:23:42] Number of PCR cycles: 11
+[13-05-14 21:23:42] Sliding window step ratio: 4
+[13-05-14 21:23:42] Minimum mapping quality: 0
+[13-05-14 21:23:42] Saving estimated raw parameters to file: /nfs/research2/goldman/botond/paper-rlsim/Bias/SRR549333/log/effest_raw_params.json
+[13-05-14 21:23:47] Number of single isoform transcripts specified: 23917
+[13-05-14 21:23:47] Parsing fragments from file: /nfs/research2/goldman/botond/paper-rlsim/Bias/SRR549333/mapped_reads/samtools/SRR549333_sort.sam
+[13-05-16 19:38:22] Total number of fragments: 79234727
+[13-05-16 19:38:22] Total number of fragments from single isoform genes: 24539990
+[13-05-16 19:38:25] Saving fragment counts to file: /nfs/research2/goldman/botond/paper-rlsim/Bias/SRR549333/log/fragment_counts.pk
+[13-05-16 19:38:30] Calculating fragment prior
+[13-05-16 19:50:02] Saving fragment prior to file: /nfs/research2/goldman/botond/paper-rlsim/Bias/SRR549333/log/fragment_prior.pk
+[13-05-16 19:50:03] Estimated minimum efficiency: 0
+[13-05-16 19:50:03] Estimated shape parameter: 0.336902
+[13-05-16 19:50:09] Saving estimated expression levels to file: /nfs/research2/goldman/botond/paper-rlsim/Bias/SRR549333/log/SRR549333_expr.fas
+[13-05-16 19:50:10] Saving uncorrected expression levels to file: /nfs/research2/goldman/botond/paper-rlsim/Bias/SRR549333/log/flat_SRR549333_expr.fas
+[13-05-16 19:50:11] Estimating fragment size distribution (truncated normal)
+[13-05-16 19:50:11] Estimated mean fragment length: 139
+[13-05-16 19:50:11] Estimated fragment length standard deviation: 24
+[13-05-16 19:50:13] Truncated normal AIC: 2.21085e+08
+[13-05-16 19:50:13] Estimating fragment size distribution (skew normal)
+[13-05-16 19:50:13] Estimated location parameter: 115
+[13-05-16 19:50:13] Estimated scale parameter: 34
+[13-05-16 19:50:13] Estimated shape parameter: 2.76237
+[13-05-16 19:50:14] Skew normal AIC: 2.20931e+08
+[13-05-16 19:50:14] Absolute AIC difference: 154780

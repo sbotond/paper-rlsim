@@ -1,0 +1,79 @@
+#!/usr/bin/env python
+
+import  sys
+import  os
+sys.path.append("./lib/")
+sys.path.append("../lib/")
+import  argparse
+import  utils       as  u
+import  rnaseq
+import  string
+
+def parse_arguments():
+    """ Parse arguments """
+    global VERBOSE_MODE
+    parser = argparse.ArgumentParser(description='Simulate RNA-seq library construction and Illumina sequencing.')
+    parser.add_argument('-f', metavar='ref_fasta', type=str, default=None, help='Reference sequences in fasta format for simulation.', required=True)
+    parser.add_argument('-m', metavar='map_ref', type=str, default=None, help='Reference sequences for mapping.', required=False)
+    parser.add_argument('-r', metavar='rlsim_opts', type=str, default=None, help='Extra rlsim options.')
+    parser.add_argument('-n', metavar='simngs_opts', type=str, default=None, help='simNGS options.')
+    parser.add_argument('-x', metavar='simngs_runfile', type=str, default=None, help='simNGS runfile.', required=True)
+    parser.add_argument('-o', metavar='out_dir', type=str, default="./", help='Output directory.')
+    parser.add_argument('-l', metavar='log_file', type=str, default=None, help='Log file.')
+    parser.add_argument('-z', metavar='tools_path', type=str, default=None, help='Path to simulation tools.', required=True)
+    parser.add_argument('-y', metavar='dir_name', type=str, default='simulation', help='Name of the simulation directory')
+
+    args            = parser.parse_args()
+    return args
+
+def parse_sim_flags(s):
+    """ Parse simulation flags. Element separator: |, key/values separator: : """
+    res     = { }
+    flags   = s.split('|') 
+    for f in flags:
+        (k, v)  = string.split(f,":",1)
+        k, v    = k.strip(), v.strip()
+        res[k] = v
+    return res
+
+args    = parse_arguments()
+
+L       =   u.Log(fname=args.l)
+rts     =   u.Rtemp(args.o, log=L).subdir(args.y)
+
+REF     =   args.f 
+MAP_REF =   args.f
+if not args.m is None:
+    MAP_REF = args.m
+
+# Set paths:
+path_info = {
+    "RLSIM_PATH":os.path.join(args.z, "rlsim"),
+    "SIMNGS_RUNFILE":args.x,
+    "SIMNGS_PATH":os.path.join(args.z, "simNGS/bin")
+}
+
+SIMNGS_OPTS     = {"-p":"paired", "-o":"fastq"}
+if not args.n is None:
+    simngs_extra    = parse_sim_flags(args.n)
+    SIMNGS_OPTS.update(simngs_extra)
+
+RLSIM_OPTS = {"-v":None }
+if not args.r is None:
+    RLSIM_OPTS  = parse_sim_flags(args.r) 
+
+L.log("-----------------------------------------------------------")
+L.log("Simulating RNA-seq library construction.")
+L.log("-----------------------------------------------------------")
+sl  = rnaseq.SimLib(log=L, ref=REF, rlsim_opts=RLSIM_OPTS, simngs_opts=SIMNGS_OPTS, lib_dir='reads', path_info=path_info, rts=rts, sink_err=False)
+(fqs, rts2)  =   sl.simulate()
+
+L.log("-----------------------------------------------------------")
+L.log("Preparing simulated data for analysis.")
+L.log("-----------------------------------------------------------")
+ps  = rnaseq.PrepSam(L, rts, fqs, MAP_REF, autoclean=False)
+ssam = ps.prep_sam()
+
+L.log("-----------------------------------------------------------")
+L.log("Aligned reads are at: %s" % ssam.name)
+L.log("-----------------------------------------------------------")

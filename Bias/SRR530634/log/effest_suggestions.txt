@@ -1,0 +1,4 @@
+Suggested rlsim parameters:
+	-d "1.0:n:(164,18,97,273)"
+	-eg "(0.31248, 0, 1)"
+	-n 67781775

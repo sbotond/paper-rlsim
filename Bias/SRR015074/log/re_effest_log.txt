@@ -1,0 +1,26 @@
+[13-05-13 19:34:37] Assumed mean efficiency: 0.87
+[13-05-13 19:34:37] Number of PCR cycles: 11
+[13-05-13 19:34:37] Sliding window step ratio: 4
+[13-05-13 19:34:37] Minimum mapping quality: 0
+[13-05-13 19:34:37] Saving estimated raw parameters to file: /nfs/research2/goldman/botond/paper-rlsim/Bias/SRR015074/log/re_effest_raw_params.json
+[13-05-13 19:34:37] Number of single isoform transcripts specified: 10700
+[13-05-13 19:34:37] Parsing fragments from file: /nfs/research2/goldman/botond/paper-rlsim/Bias/SRR015074/simulation/samtools/reads_sort.sam
+[13-05-13 19:55:33] Total number of fragments: 3208587
+[13-05-13 19:55:33] Total number of fragments from single isoform genes: 1571256
+[13-05-13 19:55:34] Saving fragment counts to file: /nfs/research2/goldman/botond/paper-rlsim/Bias/SRR015074/log/re_fragment_counts.pk
+[13-05-13 19:55:35] Calculating fragment prior
+[13-05-13 20:00:03] Saving fragment prior to file: /nfs/research2/goldman/botond/paper-rlsim/Bias/SRR015074/log/re_fragment_prior.pk
+[13-05-13 20:00:04] Estimated minimum efficiency: 0
+[13-05-13 20:00:04] Estimated shape parameter: 0.144592
+[13-05-13 20:00:06] Saving estimated expression levels to file: /nfs/research2/goldman/botond/paper-rlsim/Bias/SRR015074/log/re_SRR015074_expr.fas
+[13-05-13 20:00:06] Saving uncorrected expression levels to file: /nfs/research2/goldman/botond/paper-rlsim/Bias/SRR015074/log/flat_re_SRR015074_expr.fas
+[13-05-13 20:00:07] Estimating fragment size distribution (truncated normal)
+[13-05-13 20:00:07] Estimated mean fragment length: 182
+[13-05-13 20:00:07] Estimated fragment length standard deviation: 20
+[13-05-13 20:00:08] Truncated normal AIC: 1.39165e+07
+[13-05-13 20:00:08] Estimating fragment size distribution (skew normal)
+[13-05-13 20:00:08] Estimated location parameter: 182
+[13-05-13 20:00:08] Estimated scale parameter: 20
+[13-05-13 20:00:08] Estimated shape parameter: 7.30746e-05
+[13-05-13 20:00:08] Skew normal AIC: 1.39165e+07
+[13-05-13 20:00:08] Absolute AIC difference: 1.99062

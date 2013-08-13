@@ -1,0 +1,26 @@
+[13-05-14 02:20:04] Assumed mean efficiency: 0.87
+[13-05-14 02:20:04] Number of PCR cycles: 15
+[13-05-14 02:20:04] Sliding window step ratio: 4
+[13-05-14 02:20:04] Minimum mapping quality: 0
+[13-05-14 02:20:04] Saving estimated raw parameters to file: /nfs/research2/goldman/botond/paper-rlsim/Bias/ERR030874/log/effest_raw_params.json
+[13-05-14 02:20:08] Number of single isoform transcripts specified: 37116
+[13-05-14 02:20:08] Parsing fragments from file: /nfs/research2/goldman/botond/paper-rlsim/Bias/ERR030874/mapped_reads/samtools/ERR030874_sort.sam
+[13-05-15 03:37:05] Total number of fragments: 59386172
+[13-05-15 03:37:05] Total number of fragments from single isoform genes: 8039339
+[13-05-15 03:37:07] Saving fragment counts to file: /nfs/research2/goldman/botond/paper-rlsim/Bias/ERR030874/log/fragment_counts.pk
+[13-05-15 03:37:11] Calculating fragment prior
+[13-05-15 03:44:26] Saving fragment prior to file: /nfs/research2/goldman/botond/paper-rlsim/Bias/ERR030874/log/fragment_prior.pk
+[13-05-15 03:44:26] Estimated minimum efficiency: 0.347831
+[13-05-15 03:44:26] Estimated shape parameter: 0.589292
+[13-05-15 03:44:29] Saving estimated expression levels to file: /nfs/research2/goldman/botond/paper-rlsim/Bias/ERR030874/log/ERR030874_expr.fas
+[13-05-15 03:44:31] Saving uncorrected expression levels to file: /nfs/research2/goldman/botond/paper-rlsim/Bias/ERR030874/log/flat_ERR030874_expr.fas
+[13-05-15 03:44:33] Estimating fragment size distribution (truncated normal)
+[13-05-15 03:44:33] Estimated mean fragment length: 258
+[13-05-15 03:44:33] Estimated fragment length standard deviation: 31
+[13-05-15 03:44:33] Truncated normal AIC: 7.82729e+07
+[13-05-15 03:44:33] Estimating fragment size distribution (skew normal)
+[13-05-15 03:44:34] Estimated location parameter: 289
+[13-05-15 03:44:34] Estimated scale parameter: 44
+[13-05-15 03:44:34] Estimated shape parameter: -4.42722
+[13-05-15 03:44:34] Skew normal AIC: 7.49145e+07
+[13-05-15 03:44:34] Absolute AIC difference: 3.35839e+06

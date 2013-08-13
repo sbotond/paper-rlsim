@@ -1,0 +1,62 @@
+#!/usr/bin/env perl
+
+# Script downloading the Ensembl canonical transcriptome and the list of single isoform transcripts.
+
+use strict;
+use warnings;
+
+use Carp;
+
+use Bio::EnsEMBL::Registry;
+use Bio::SeqIO;
+use Bio::Seq;
+
+use File::Path;
+use POSIX qw(ceil);
+
+if((scalar @ARGV) != 3) {
+    die("This script needs exactly three arguments: genome, output file name and isoform file name!");
+}
+
+my $GENOME = $ARGV[0];
+my $OUT_FASTA = $ARGV[1];
+my $ISO_FILE = $ARGV[2];
+
+# Load EnsEMBL registry:
+my $reg = 'Bio::EnsEMBL::Registry';
+my $mirror = 'ensembldb.ensembl.org';          # FIXME
+#my $mirror = 'mysql-ensembl-mirror.ebi.ac.uk';
+$reg->load_registry_from_db(
+    -host => $mirror,
+#    -port=> 4240,
+    -user => 'anonymous'
+);
+
+# Get a gene adaptor via core API:
+my $gene_adaptor = $reg->get_adaptor( $GENOME, 'core', 'gene' );
+
+my $out = Bio::SeqIO->new(-file => ">" . $OUT_FASTA ,
+                                  -format => 'fasta');
+
+open my $ISO, ">", $ISO_FILE;
+
+# Fetch all genes:
+for my $g (@{ $gene_adaptor->fetch_all() }) {
+    # Get all transcripts:
+    my $nr_trs = scalar @{ $g->get_all_Transcripts };
+    #print STDERR $g->stable_id(),"\t",$nr_trs,"\n";
+
+    # Get canonical transcript:
+    my $ctr = $g->canonical_transcript();
+    my $seq = $ctr->seq();
+
+    if($nr_trs == 1) {
+        print $ISO $seq->display_id(),"\n";
+    }
+
+    $out->write_seq($seq);
+}
+
+close $ISO
+
+

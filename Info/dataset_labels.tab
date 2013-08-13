@@ -1,0 +1,17 @@
+H. sapiens	SRR065496	ENCODE/Caltech 	HepG2
+H. sapiens	SRR521457	ENCODE/Caltech 	K562
+H. sapiens	SRR521448	ENCODE/Caltech 	GM12878
+H. sapiens	ERR030885	Illumina/BodyMap	kidney
+H. sapiens	ERR030874	Illumina/BodyMap	ovary
+M. musculus	SRR040000	Guttman et al.	stem cells
+M. musculus	SRR530634	ENCODE/Stanford, Yale	~K562, S:dUTP
+M. musculus	SRR530635	ENCODE/Stanford, Yale	~K562, S:dUTP
+M. musculus	ERR120702	Goncalves et al.	liver
+M. musculus	SRR549333	ENCODE/PSU	cell line, S:dUTP
+M. musculus	SRR549337	ENCODE/PSU	cell line, S:dUTP
+M. musculus	SRR496440	ENCODE/Caltech	cell line
+D. melanogaster	SRR042423	Daines et al.	larvae
+D. melanogaster	SRR059066	Daines et al.	larvae
+D. melanogaster	SRR034309	modENCODE/Celinker	embryos
+D. melanogaster	SRR031717	Brooks et al.	cell line
+D. melanogaster	SRR015074	modEncode/Graveley	cell line

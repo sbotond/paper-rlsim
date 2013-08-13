@@ -1,0 +1,150 @@
+BWA Version: 0.7.4-r385
+samtools Version: 0.1.19-44428cd
+Python:		2.7.3 GCC 4.4.6 20110731 (Red Hat 4.4.6-3)
+numpy:		1.6.2
+matplotlib:	1.2.0
+scipy:		0.11.0
+HTSeq:		0.5.4p1
+
+# Ensembl versions:
+
+Will only load v69 databases
+Species 'saccharomyces_cerevisiae' loaded from database 'saccharomyces_cerevisiae_core_69_4'
+Species 'ciona_savignyi' loaded from database 'ciona_savignyi_core_69_2'
+Species 'myotis_lucifugus' loaded from database 'myotis_lucifugus_core_69_2'
+Species 'taeniopygia_guttata' loaded from database 'taeniopygia_guttata_core_69_1'
+Species 'sorex_araneus' loaded from database 'sorex_araneus_core_69_1'
+Species 'otolemur_garnettii' loaded from database 'otolemur_garnettii_core_69_3'
+Species 'macropus_eugenii' loaded from database 'macropus_eugenii_core_69_1'
+Species 'erinaceus_europaeus' loaded from database 'erinaceus_europaeus_core_69_1'
+Species 'anolis_carolinensis' loaded from database 'anolis_carolinensis_core_69_2'
+Species 'gadus_morhua' loaded from database 'gadus_morhua_core_69_1'
+Species 'dasypus_novemcinctus' loaded from database 'dasypus_novemcinctus_core_69_2'
+Species 'tursiops_truncatus' loaded from database 'tursiops_truncatus_core_69_1'
+Species 'mus_musculus' loaded from database 'mus_musculus_core_69_38'
+Species 'bos_taurus' loaded from database 'bos_taurus_core_69_31'
+Species 'monodelphis_domestica' loaded from database 'monodelphis_domestica_core_69_5'
+Species 'choloepus_hoffmanni' loaded from database 'choloepus_hoffmanni_core_69_1'
+Species 'sus_scrofa' loaded from database 'sus_scrofa_core_69_102'
+Species 'rattus_norvegicus' loaded from database 'rattus_norvegicus_core_69_34'
+Species 'caenorhabditis_elegans' loaded from database 'caenorhabditis_elegans_core_69_230'
+Species 'pteropus_vampyrus' loaded from database 'pteropus_vampyrus_core_69_1'
+Species 'microcebus_murinus' loaded from database 'microcebus_murinus_core_69_1'
+Species 'sarcophilus_harrisii' loaded from database 'sarcophilus_harrisii_core_69_7'
+Species 'pelodiscus_sinensis' loaded from database 'pelodiscus_sinensis_core_69_1'
+Species 'equus_caballus' loaded from database 'equus_caballus_core_69_2'
+Species 'xiphophorus_maculatus' loaded from database 'xiphophorus_maculatus_core_69_1'
+Species 'macaca_mulatta' loaded from database 'macaca_mulatta_core_69_10'
+Species 'latimeria_chalumnae' loaded from database 'latimeria_chalumnae_core_69_1'
+Species 'gasterosteus_aculeatus' loaded from database 'gasterosteus_aculeatus_core_69_1'
+Species 'gorilla_gorilla' loaded from database 'gorilla_gorilla_core_69_31'
+Species 'oryctolagus_cuniculus' loaded from database 'oryctolagus_cuniculus_core_69_3'
+Species 'oreochromis_niloticus' loaded from database 'oreochromis_niloticus_core_69_1'
+Species 'echinops_telfairi' loaded from database 'echinops_telfairi_core_69_1'
+Species 'nomascus_leucogenys' loaded from database 'nomascus_leucogenys_core_69_1'
+Species 'homo_sapiens' loaded from database 'homo_sapiens_core_69_37'
+Species 'dipodomys_ordii' loaded from database 'dipodomys_ordii_core_69_1'
+Species 'canis_familiaris' loaded from database 'canis_familiaris_core_69_31'
+Species 'callithrix_jacchus' loaded from database 'callithrix_jacchus_core_69_321'
+Species 'pongo_abelii' loaded from database 'pongo_abelii_core_69_1'
+Species 'ornithorhynchus_anatinus' loaded from database 'ornithorhynchus_anatinus_core_69_1'
+Species 'tetraodon_nigroviridis' loaded from database 'tetraodon_nigroviridis_core_69_8'
+Species 'mustela_putorius_furo' loaded from database 'mustela_putorius_furo_core_69_1'
+Species 'tarsius_syrichta' loaded from database 'tarsius_syrichta_core_69_1'
+Species 'vicugna_pacos' loaded from database 'vicugna_pacos_core_69_1'
+Species 'meleagris_gallopavo' loaded from database 'meleagris_gallopavo_core_69_21'
+Species 'xenopus_tropicalis' loaded from database 'xenopus_tropicalis_core_69_42'
+Species 'ictidomys_tridecemlineatus' loaded from database 'ictidomys_tridecemlineatus_core_69_2'
+Species 'cavia_porcellus' loaded from database 'cavia_porcellus_core_69_3'
+Species 'takifugu_rubripes' loaded from database 'takifugu_rubripes_core_69_4'
+Species 'ochotona_princeps' loaded from database 'ochotona_princeps_core_69_1'
+Species 'pan_troglodytes' loaded from database 'pan_troglodytes_core_69_214'
+Species 'petromyzon_marinus' loaded from database 'petromyzon_marinus_core_69_7'
+Species 'ailuropoda_melanoleuca' loaded from database 'ailuropoda_melanoleuca_core_69_1'
+Species 'felis_catus' loaded from database 'felis_catus_core_69_1'
+Species 'procavia_capensis' loaded from database 'procavia_capensis_core_69_1'
+Species 'oryzias_latipes' loaded from database 'oryzias_latipes_core_69_1'
+Species 'danio_rerio' loaded from database 'danio_rerio_core_69_9'
+Species 'gallus_gallus' loaded from database 'gallus_gallus_core_69_2'
+Species 'tupaia_belangeri' loaded from database 'tupaia_belangeri_core_69_1'
+Species 'ciona_intestinalis' loaded from database 'ciona_intestinalis_core_69_3'
+Species 'loxodonta_africana' loaded from database 'loxodonta_africana_core_69_3'
+Species 'drosophila_melanogaster' loaded from database 'drosophila_melanogaster_core_69_539'
+Species 'homo_sapiens' loaded from database 'homo_sapiens_cdna_69_37'
+Species 'mus_musculus' loaded from database 'mus_musculus_cdna_69_38'
+Species 'sus_scrofa' loaded from database 'sus_scrofa_vega_69_102'
+Species 'mus_musculus' loaded from database 'mus_musculus_vega_69_38'
+Species 'danio_rerio' loaded from database 'danio_rerio_vega_69_9'
+Species 'homo_sapiens' loaded from database 'homo_sapiens_vega_69_37'
+Species 'danio_rerio' loaded from database 'danio_rerio_otherfeatures_69_9'
+Species 'taeniopygia_guttata' loaded from database 'taeniopygia_guttata_otherfeatures_69_1'
+Species 'otolemur_garnettii' loaded from database 'otolemur_garnettii_otherfeatures_69_3'
+Species 'oryzias_latipes' loaded from database 'oryzias_latipes_otherfeatures_69_1'
+Species 'meleagris_gallopavo' loaded from database 'meleagris_gallopavo_otherfeatures_69_21'
+Species 'ailuropoda_melanoleuca' loaded from database 'ailuropoda_melanoleuca_otherfeatures_69_1'
+Species 'saccharomyces_cerevisiae' loaded from database 'saccharomyces_cerevisiae_otherfeatures_69_4'
+Species 'gallus_gallus' loaded from database 'gallus_gallus_otherfeatures_69_2'
+Species 'gorilla_gorilla' loaded from database 'gorilla_gorilla_otherfeatures_69_31'
+Species 'homo_sapiens' loaded from database 'homo_sapiens_otherfeatures_69_37'
+Species 'bos_taurus' loaded from database 'bos_taurus_otherfeatures_69_31'
+Species 'tetraodon_nigroviridis' loaded from database 'tetraodon_nigroviridis_otherfeatures_69_8'
+Species 'anolis_carolinensis' loaded from database 'anolis_carolinensis_otherfeatures_69_2'
+Species 'cavia_porcellus' loaded from database 'cavia_porcellus_otherfeatures_69_3'
+Species 'equus_caballus' loaded from database 'equus_caballus_otherfeatures_69_2'
+Species 'macaca_mulatta' loaded from database 'macaca_mulatta_otherfeatures_69_10'
+Species 'petromyzon_marinus' loaded from database 'petromyzon_marinus_otherfeatures_69_7'
+Species 'ictidomys_tridecemlineatus' loaded from database 'ictidomys_tridecemlineatus_otherfeatures_69_2'
+Species 'pongo_abelii' loaded from database 'pongo_abelii_otherfeatures_69_1'
+Species 'mustela_putorius_furo' loaded from database 'mustela_putorius_furo_otherfeatures_69_1'
+Species 'latimeria_chalumnae' loaded from database 'latimeria_chalumnae_otherfeatures_69_1'
+Species 'mus_musculus' loaded from database 'mus_musculus_otherfeatures_69_38'
+Species 'takifugu_rubripes' loaded from database 'takifugu_rubripes_otherfeatures_69_4'
+Species 'pelodiscus_sinensis' loaded from database 'pelodiscus_sinensis_otherfeatures_69_1'
+Species 'nomascus_leucogenys' loaded from database 'nomascus_leucogenys_otherfeatures_69_1'
+Species 'pan_troglodytes' loaded from database 'pan_troglodytes_otherfeatures_69_214'
+Species 'rattus_norvegicus' loaded from database 'rattus_norvegicus_otherfeatures_69_34'
+Species 'xiphophorus_maculatus' loaded from database 'xiphophorus_maculatus_otherfeatures_69_1'
+Species 'sarcophilus_harrisii' loaded from database 'sarcophilus_harrisii_otherfeatures_69_7'
+Species 'callithrix_jacchus' loaded from database 'callithrix_jacchus_otherfeatures_69_321'
+Species 'oryctolagus_cuniculus' loaded from database 'oryctolagus_cuniculus_otherfeatures_69_3'
+Species 'drosophila_melanogaster' loaded from database 'drosophila_melanogaster_otherfeatures_69_539'
+Species 'xenopus_tropicalis' loaded from database 'xenopus_tropicalis_otherfeatures_69_42'
+Species 'gasterosteus_aculeatus' loaded from database 'gasterosteus_aculeatus_otherfeatures_69_1'
+Species 'canis_familiaris' loaded from database 'canis_familiaris_otherfeatures_69_31'
+Species 'myotis_lucifugus' loaded from database 'myotis_lucifugus_otherfeatures_69_2'
+Species 'ciona_savignyi' loaded from database 'ciona_savignyi_otherfeatures_69_2'
+Species 'ornithorhynchus_anatinus' loaded from database 'ornithorhynchus_anatinus_otherfeatures_69_1'
+Species 'sus_scrofa' loaded from database 'sus_scrofa_otherfeatures_69_102'
+Species 'oreochromis_niloticus' loaded from database 'oreochromis_niloticus_otherfeatures_69_1'
+Species 'ciona_intestinalis' loaded from database 'ciona_intestinalis_otherfeatures_69_3'
+Species 'pelodiscus_sinensis' loaded from database 'pelodiscus_sinensis_rnaseq_69_1'
+Species 'mustela_putorius_furo' loaded from database 'mustela_putorius_furo_rnaseq_69_1'
+Species 'sus_scrofa' loaded from database 'sus_scrofa_rnaseq_69_102'
+Species 'canis_familiaris' loaded from database 'canis_familiaris_rnaseq_69_31'
+Species 'xiphophorus_maculatus' loaded from database 'xiphophorus_maculatus_rnaseq_69_1'
+Species 'ornithorhynchus_anatinus' loaded from database 'ornithorhynchus_anatinus_rnaseq_69_1'
+Species 'pan_troglodytes' loaded from database 'pan_troglodytes_rnaseq_69_214'
+Species 'oreochromis_niloticus' loaded from database 'oreochromis_niloticus_rnaseq_69_1'
+Species 'pongo_abelii' loaded from database 'pongo_abelii_rnaseq_69_1'
+Species 'monodelphis_domestica' loaded from database 'monodelphis_domestica_rnaseq_69_5'
+Species 'homo_sapiens' loaded from database 'homo_sapiens_rnaseq_69_37'
+Bio::EnsEMBL::Variation::DBSQL::DBAdaptor module not found so variation databases will be ignored if found
+bos_taurus_funcgen_69_31 loaded
+homo_sapiens_funcgen_69_37 loaded
+rattus_norvegicus_funcgen_69_34 loaded
+xenopus_tropicalis_funcgen_69_42 loaded
+drosophila_melanogaster_funcgen_69_539 loaded
+canis_familiaris_funcgen_69_31 loaded
+ornithorhynchus_anatinus_funcgen_69_1 loaded
+gallus_gallus_funcgen_69_2 loaded
+pan_troglodytes_funcgen_69_214 loaded
+saccharomyces_cerevisiae_funcgen_69_4 loaded
+mus_musculus_funcgen_69_38 loaded
+macaca_mulatta_funcgen_69_10 loaded
+danio_rerio_funcgen_69_9 loaded
+sus_scrofa_funcgen_69_102 loaded
+caenorhabditis_elegans_funcgen_69_230 loaded
+ciona_intestinalis_funcgen_69_3 loaded
+ensembl_compara_69 loaded
+ensembl_ancestral_69 loaded
+ensembl_ontology_69 loaded

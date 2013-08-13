@@ -1,0 +1,2 @@
+Correlation coefficient difference (full - flat):	-0.000072
+P-value difference (full - flat):	0.000000

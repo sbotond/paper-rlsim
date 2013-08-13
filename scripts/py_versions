@@ -1,0 +1,18 @@
+#!/usr/bin/env python
+
+# Print out Python + package versions.
+
+import      platform
+import      matplotlib
+import      numpy
+import      scipy
+import      HTSeq
+
+print "Python:\t\t", platform.python_version(), platform.python_compiler()
+#print "System:\t\t", platform.release(), platform.version(), platform.machine(), platform.processor()
+print "numpy:\t\t", numpy.__version__
+print "matplotlib:\t", matplotlib.__version__
+print "scipy:\t\t", scipy.__version__
+print "HTSeq:\t\t", HTSeq.__version__
+
+

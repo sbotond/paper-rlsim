@@ -1,0 +1,26 @@
+[13-05-17 08:10:44] Assumed mean efficiency: 0.87
+[13-05-17 08:10:44] Number of PCR cycles: 15
+[13-05-17 08:10:44] Sliding window step ratio: 4
+[13-05-17 08:10:44] Minimum mapping quality: 0
+[13-05-17 08:10:44] Saving estimated raw parameters to file: /nfs/research2/goldman/botond/paper-rlsim/Bias/ERR030885/log/re_effest_raw_params.json
+[13-05-17 08:10:49] Number of single isoform transcripts specified: 37116
+[13-05-17 08:10:49] Parsing fragments from file: /nfs/research2/goldman/botond/paper-rlsim/Bias/ERR030885/simulation/samtools/reads_sort.sam
+[13-05-19 03:13:15] Total number of fragments: 57462052
+[13-05-19 03:13:15] Total number of fragments from single isoform genes: 7435232
+[13-05-19 03:13:17] Saving fragment counts to file: /nfs/research2/goldman/botond/paper-rlsim/Bias/ERR030885/log/re_fragment_counts.pk
+[13-05-19 03:13:20] Calculating fragment prior
+[13-05-19 03:20:06] Saving fragment prior to file: /nfs/research2/goldman/botond/paper-rlsim/Bias/ERR030885/log/re_fragment_prior.pk
+[13-05-19 03:20:07] Estimated minimum efficiency: 0
+[13-05-19 03:20:07] Estimated shape parameter: 0.129536
+[13-05-19 03:20:10] Saving estimated expression levels to file: /nfs/research2/goldman/botond/paper-rlsim/Bias/ERR030885/log/re_ERR030885_expr.fas
+[13-05-19 03:20:11] Saving uncorrected expression levels to file: /nfs/research2/goldman/botond/paper-rlsim/Bias/ERR030885/log/flat_re_ERR030885_expr.fas
+[13-05-19 03:20:13] Estimating fragment size distribution (truncated normal)
+[13-05-19 03:20:13] Estimated mean fragment length: 212
+[13-05-19 03:20:13] Estimated fragment length standard deviation: 28
+[13-05-19 03:20:13] Truncated normal AIC: 7.11243e+07
+[13-05-19 03:20:13] Estimating fragment size distribution (skew normal)
+[13-05-19 03:20:13] Estimated location parameter: 240
+[13-05-19 03:20:13] Estimated scale parameter: 40
+[13-05-19 03:20:13] Estimated shape parameter: -3.50943
+[13-05-19 03:20:14] Skew normal AIC: 6.87109e+07
+[13-05-19 03:20:14] Absolute AIC difference: 2.4134e+06

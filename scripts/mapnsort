@@ -1,0 +1,74 @@
+#!/usr/bin/env python
+
+import  sys
+import  os
+sys.path.append("../lib/")
+sys.path.append("../../../lib/")
+
+import  utils       as  u
+import  align
+import  samtools
+import  os
+import  sys
+import  argparse
+
+def parse_arguments():
+    """ Parse arguments """
+    global VERBOSE_MODE
+    parser = argparse.ArgumentParser(description='Map and sort reads.')
+    parser.add_argument('input_file', metavar='input file', type=str, nargs='+', default=None,
+                   help='Paired-end reads in separate fastq files.')
+    parser.add_argument('-f', metavar='ref_fasta', type=str, default="", help='Reference sequences in fasta format.')
+    parser.add_argument('-s', action='store_true', default=False, help="Assume reads are single ended.")
+    parser.add_argument('-o', metavar='output_file', type=str, default='', help="Output file name.")
+    args            = parser.parse_args()
+    return args
+
+args    = parse_arguments()
+
+REF     = args.f
+
+if args.s:
+    if len(args.input_file) != 1:
+        raise ValueError("Wrong number of read files (needed 1)")
+
+    FQS = [ os.path.abspath(args.input_file[0]) ]
+else:
+    if len(args.input_file) != 2:
+        raise ValueError("Wrong number of read files (needed 2)")
+
+    FQS     = [None, None]
+    FQS[0]  = os.path.abspath(args.input_file[0])
+    FQS[1]  = os.path.abspath(args.input_file[1])
+
+L       =   u.Log()
+rts     =   u.Rtemp("./", log=L)
+
+#L.log("Bowtie: mapping reads.")
+#bwt =   align.Bowtie(L, REF, rts, FQS, aln_opts={"-X":"5000"}, sink_err=True, has_index=True)
+#bwt.index()
+bwt =   align.Bwa(L, REF, rts, FQS, sink_err=True, has_index=True, paired=(not args.s))
+bwt.aln()
+bwt.index()
+sam = bwt.sam()
+
+L.log("Samtools: converting alignments to BAM format.")
+st      = samtools.Samtools(L, rts=rts)
+bam     = u.chext(sam,"bam")
+st.view(inp=sam, outp=bam)
+
+L.log("Samtools: sorting reads by name.")
+sbam = st.sort(bam, opts={"-n":None})
+L.log("Samtools: converting sorted reads to SAM format.")
+
+if not args.o:
+    args.o = u.chext(sbam,"sam")
+
+opts = { "-h":None }
+if args.s:
+    opts["-F"] = "0x0004"
+else:
+    opts["-f"] = "0x0002"
+
+ssam = st.view(inp=sbam, outp=args.o, opts=opts)
+L.log("Sorted alignments are in: %s" % ssam.name)

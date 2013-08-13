@@ -1,0 +1,249 @@
+#!/usr/bin/env python
+
+VERSION="1.0"
+
+import      matplotlib
+matplotlib.use('Agg')
+import      sys
+import      numpy       as      np
+from        matplotlib  import  pyplot  as plt
+import      argparse
+from        matplotlib.backends.backend_pdf import  PdfPages
+from        scipy.stats import gaussian_kde
+import      cPickle
+
+##
+## Functions and classes:
+##
+
+def parse_arguments():
+    """ Parse arguments """
+    parser = argparse.ArgumentParser(description='Compare the distributions of pickled coverage stats (version %s).' % VERSION)
+    parser.add_argument('-m', metavar='m_pickle', type=str,  help='Pickle generated with full model.', required=True)
+    parser.add_argument('-f', metavar='f_pickle', type=str,  help='Pickle generated with flat model.', required=True)
+    parser.add_argument('-r', metavar='pdf', default="meta_cov_cmp.pdf",type=str,  help='Report PDF.', required=False)
+    parser.add_argument('-p', metavar='el_pickle', default="meta_cov_cmp.pk",type=str,  help='Result pickle file.', required=False)
+    args                             = parser.parse_args()
+    return args
+
+class Report:
+    """ Class for plotting reports """
+    def __init__(self, pdf):
+        self.pdf    = pdf
+        self.pages  = PdfPages(pdf)
+
+    def plot_hist(self, data, title="",xlab="",ylab="",bins=50):
+        """ Plot a histogram of the data """
+        data=np.array(data)
+        fig = plt.figure()
+
+        # Set 0.0 as a boundary:
+        u = np.max( data ) 
+        l = np.min( data ) 
+        bp = np.arange(0,u,2.0/bins)
+        bn = np.arange(0,l,-2.0/bins)[1:][::-1]
+        b  = np.hstack((bn,bp))
+
+        plt.hist(data, bins=b,align='mid')
+
+        plt.xlabel(xlab)
+        plt.ylabel(ylab)
+        plt.title(title)
+        self.pages.savefig(fig)
+        plt.clf()
+        plt.close(fig)
+
+    def plot_double_hists(self,md,fd,title="",xlab="",ylab="",bins=100,mcol="blue",fcol="red",alpha=0.5,stacked=False,center_zero=False):
+        """ Overlayed plot of two histograms """
+        md=np.array(md)
+        fd=np.array(fd)
+        fig = plt.figure()
+
+        if center_zero:
+            # Set 0.0 as a boundary:
+            u = max( np.max(md), np.max(fd)) 
+            l = min( np.min(md), np.min(fd)) 
+            bp = np.arange(0,u,2.0/bins)
+            bn = np.arange(0,l,-2.0/bins)[1:][::-1]
+            bins  = np.hstack((bn,bp))
+
+        plt.hold(True)
+        plt.hist(md, bins=bins,color=mcol, stacked=stacked,alpha=alpha, label="full model", align='mid')
+        plt.hist(fd, bins=bins,color=fcol, stacked=stacked,alpha=alpha, label="flat model", align='mid')
+        plt.hold(False)
+
+        plt.legend()
+        plt.xlabel(xlab)
+        plt.ylabel(ylab)
+        plt.title(title)
+        self.pages.savefig(fig)
+        plt.clf()
+        plt.close(fig)
+
+    def plot_double_kde(self,md,fd,title="",xlab="",ylab="",bins=100,mcol="blue",fcol="red",alpha=0.5,stacked=False,center_zero=False):
+        """ Overlay two density plots """
+        md=np.array(md)
+        fd=np.array(fd)
+        fig = plt.figure()
+
+        if center_zero:
+            # Set 0.0 as a boundary:
+            u = max( np.max(md), np.max(fd)) 
+            l = min( np.min(md), np.min(fd)) 
+            bp = np.arange(0,u,2.0/bins)
+            bn = np.arange(0,l,-2.0/bins)[1:][::-1]
+            bins  = np.hstack((bn,bp))
+
+        dmd = gaussian_kde(md)
+        dfd = gaussian_kde(fd)
+
+        plt.hold(True)
+        plt.plot(bins, dmd(bins), color=mcol, linewidth=0.5,label="full model")
+        plt.plot(bins, dfd(bins), color=fcol, linewidth=0.5,label="flat model")
+        plt.hold(False)
+
+        plt.legend()
+        plt.xlabel(xlab)
+        plt.ylabel(ylab)
+        plt.title(title)
+        self.pages.savefig(fig)
+        plt.clf()
+        plt.close(fig)
+
+    def plot_bar(self,x, y, title="", xlab="", ylab=""):
+        """ XY scatter plot with bars """
+        fig = plt.figure()
+        ax = fig.add_subplot(111)
+
+        ax.bar(range(len(x)), y,width=5 )
+        ax.set_xticks(range(len(x)))  
+        ax.set_xticklabels(x)  
+
+        ax.set_title(title)
+        ax.set_xlabel(xlab)
+        ax.set_ylabel(ylab)
+        self.pages.savefig(fig)
+        plt.clf()
+        plt.close(fig)
+
+
+    def close(self):
+        self.pages.close()
+
+class Log:
+    """ Logging utility class """
+    def __init__(self, fname=None, level=0):
+        self.level = level
+        if fname is None:
+            self.fname  = "<sys.stderr>"
+            self.file   = sys.stderr
+        else:
+            self.file   = open(fname, "w")
+            self.fname  = fname
+
+    def close(self):
+        self.file.flush()
+        self.file.close()
+
+
+    def log(self, message):
+        """ Loge message """
+        if self.level < 0:
+            return
+        self.file.write("[%s] %s\n" % (time.strftime("%y-%m-%d %H:%M:%S"), message) )
+
+    def vlog(self, message):
+        """ Verbose log message """
+        if self.level < 1:
+            return
+        self.file.write("[%s] %s\n" % (time.strftime("%y-%m-%d %H:%M:%S"), message) )
+
+    def fatal(self, message):
+        """ Log message and die """
+        self.file.write("[%s] %s\n" % (time.strftime("%y-%m-%d %H:%M:%S"), message) )
+        sys.exit(1)
+
+def unpickle_results(f):
+    """ Load data from pickle file """
+    fh     = open(f, "r")
+    pickle = cPickle.Unpickler( fh )
+    tmp = pickle.load()
+    return tmp
+
+def pickle(d, fname):
+    """ Pickle data to file """
+    fh     = open(fname, "w")
+    pickle = cPickle.Pickler( fh )
+    pickle.dump(d)
+    fh.flush()
+    fh.close()
+
+def get_pvals(x):
+    """ Get p values from pickle """
+    return x["cov_pvals"].values()
+
+def get_rhos(x):
+    """ Get rho values from pickle """
+    return x["cov_rhos"].values()
+
+def pairwise_diff(d1, d2):
+    """ Compute elementwise differences of two vectors """
+    diff =[]
+    for tr, val in d1.iteritems():
+        if tr not in d2:
+            continue
+        delta = val - d2[tr]
+        if delta != 0:
+            diff.append(val - d2[tr]) 
+    return diff
+
+def el_diff(m, f):
+    tmp                 = {}
+    tmp['d_el_rho']     = m['el_rho'] - f['el_rho']
+    tmp['d_el_pval']    = m['el_pval']- f['el_pval']
+    tmp['el_rho']       = m['el_rho']
+    tmp['el_rho_flat']  = f['el_rho']
+    return tmp
+
+args        = parse_arguments()
+L           = Log()
+R           = Report(args.r)
+
+mst     = unpickle_results(args.m)
+fst     = unpickle_results(args.f)
+
+pd_rho  = pairwise_diff(mst["cov_rhos"], fst["cov_rhos"])
+pd_pval = pairwise_diff(mst["cov_pvals"], fst["cov_pvals"])
+eld     = el_diff(mst, fst)
+pickle(eld, args.p)
+
+print "Correlation coefficient difference (full - flat):\t%f" % eld['d_el_rho']
+print "P-value difference (full - flat):\t%f" % eld['d_el_pval']
+
+R.plot_double_hists(get_rhos(mst), get_rhos(fst), center_zero=True, bins=200,
+    title="Distribution of per-transcript coverage correlation coefficients",
+    xlab="Rho",
+    ylab="Frequency"
+)
+
+R.plot_double_hists(get_pvals(mst), get_pvals(fst), bins=100,
+    title="p-value distribution of per-transcript coverage correlation",
+    xlab="p-value",
+    ylab="Frequency"
+)
+
+R.plot_hist(pd_rho, bins=400,
+    title="Distribution of pairwise correlation coefficient differences (full - flat)",
+    xlab="Rho",
+    ylab="Frequency"
+)
+
+R.plot_hist(pd_pval, bins=100,
+    title="Distribution of pairwise p-value differences (full - flat)",
+    xlab="p-value",
+    ylab="Frequency"
+)
+
+
+R.close()
+

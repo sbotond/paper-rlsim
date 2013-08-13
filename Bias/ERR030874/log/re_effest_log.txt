@@ -1,0 +1,26 @@
+[13-05-18 00:33:17] Assumed mean efficiency: 0.87
+[13-05-18 00:33:17] Number of PCR cycles: 15
+[13-05-18 00:33:17] Sliding window step ratio: 4
+[13-05-18 00:33:17] Minimum mapping quality: 0
+[13-05-18 00:33:17] Saving estimated raw parameters to file: /nfs/research2/goldman/botond/paper-rlsim/Bias/ERR030874/log/re_effest_raw_params.json
+[13-05-18 00:33:25] Number of single isoform transcripts specified: 37116
+[13-05-18 00:33:25] Parsing fragments from file: /nfs/research2/goldman/botond/paper-rlsim/Bias/ERR030874/simulation/samtools/reads_sort.sam
+[13-05-19 11:24:25] Total number of fragments: 58839005
+[13-05-19 11:24:25] Total number of fragments from single isoform genes: 7258422
+[13-05-19 11:24:27] Saving fragment counts to file: /nfs/research2/goldman/botond/paper-rlsim/Bias/ERR030874/log/re_fragment_counts.pk
+[13-05-19 11:24:31] Calculating fragment prior
+[13-05-19 11:33:38] Saving fragment prior to file: /nfs/research2/goldman/botond/paper-rlsim/Bias/ERR030874/log/re_fragment_prior.pk
+[13-05-19 11:33:39] Estimated minimum efficiency: 0
+[13-05-19 11:33:39] Estimated shape parameter: 0.172273
+[13-05-19 11:33:41] Saving estimated expression levels to file: /nfs/research2/goldman/botond/paper-rlsim/Bias/ERR030874/log/re_ERR030874_expr.fas
+[13-05-19 11:33:43] Saving uncorrected expression levels to file: /nfs/research2/goldman/botond/paper-rlsim/Bias/ERR030874/log/flat_re_ERR030874_expr.fas
+[13-05-19 11:33:45] Estimating fragment size distribution (truncated normal)
+[13-05-19 11:33:45] Estimated mean fragment length: 257
+[13-05-19 11:33:45] Estimated fragment length standard deviation: 32
+[13-05-19 11:33:46] Truncated normal AIC: 7.10781e+07
+[13-05-19 11:33:46] Estimating fragment size distribution (skew normal)
+[13-05-19 11:33:46] Estimated location parameter: 289
+[13-05-19 11:33:46] Estimated scale parameter: 45
+[13-05-19 11:33:46] Estimated shape parameter: -4.60188
+[13-05-19 11:33:46] Skew normal AIC: 6.79316e+07
+[13-05-19 11:33:46] Absolute AIC difference: 3.14649e+06

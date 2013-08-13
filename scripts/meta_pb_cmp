@@ -1,0 +1,72 @@
+#!/usr/bin/env python
+
+VERSION="1.0"
+
+import      matplotlib
+matplotlib.use('Agg')
+import      sys
+import      numpy       as      np
+from        matplotlib  import  pyplot  as plt
+import      argparse
+from        matplotlib.backends.backend_pdf import  PdfPages
+from        scipy       import stats
+import      cPickle
+
+def parse_arguments():
+    """ Parse arguments """
+    parser = argparse.ArgumentParser(description='Compare pickled bias stats (version %s).' % VERSION)
+    parser.add_argument('-a', metavar='a_pickle', type=str,  help='Pickle generated from real data.', required=True)
+    parser.add_argument('-s', metavar='s_pickle', type=str,  help='Pickle generated from simulated data.', required=True)
+    parser.add_argument('-p', metavar='res_pickle', default="meta_pb_plot.pk", type=str,  help='Result pickle file.', required=False)
+    args            = parser.parse_args()
+    return args
+
+def unpickle_results(f):
+    """ Load data from pickle file """
+    fh     = open(f, "r")
+    pickle = cPickle.Unpickler( fh )
+    tmp = pickle.load()
+    return tmp
+
+def pickle(d, fname):
+    """ Pickle data to file """
+    fh     = open(fname, "w")
+    pickle = cPickle.Pickler( fh )
+    pickle.dump(d)
+    fh.flush()
+    fh.close()
+
+def pos_corr(a, b, rhos):
+    """ Calculate average positional bias rank correlation """
+    nuc = ('A', 'T', 'G', 'C')
+    for n in nuc:
+        r,p  = stats.spearmanr(a[n], b[n]) 
+        rhos.append(r)
+
+
+def gc_corr(a,b):
+    """ Calculate rank correlation of fragment GC content distributions """
+    r, p = stats.spearmanr( a['gc_content'], b['gc_content'] )
+    return r
+
+args        = parse_arguments()
+
+ast     = unpickle_results(args.a)
+sst     = unpickle_results(args.s)
+
+rhos    = [ ]
+pos_corr(ast['counts_start'], sst['counts_start'], rhos)
+pos_corr(ast['counts_end'], sst['counts_end'], rhos)
+
+rhos    = np.array(rhos)
+gc_rho  = gc_corr(ast, sst)
+print "Mean position bias correlation: %f" % np.mean(rhos)
+print "Fragment GC content correlation: %f" % gc_rho
+
+# Pickle results:
+pl = {
+    "counts_rho": np.mean(rhos),
+    "gc_rho": gc_rho
+}
+pickle(pl, args.p)
+
