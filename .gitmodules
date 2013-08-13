@@ -1,0 +1,6 @@
+[submodule "simulators/rlsim"]
+	path = simulators/rlsim
+	url = https://github.com/sbotond/rlsim.git
+[submodule "simulators/simNGS"]
+	path = simulators/simNGS
+	url = https://github.com/timmassingham/simNGS.git
