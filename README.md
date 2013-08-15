@@ -6,7 +6,7 @@
 
 This repository contains the analysis pipeline, the description of workflow and the results presented in the manuscript:
 
-- Botond Sipos, Greg Slodkowicz, Tim Massingham, Nick Goldman (2013) *Realistic simulations reveal extensive sample-specificity of RNA-seq biases* *arXiv*:[1308.3172](http://arxiv.org/abs/1308.3172) 
+- Botond Sipos, Greg Slodkowicz, Tim Massingham, Nick Goldman (2013) *Realistic simulations reveal extensive sample-specificity of RNA-seq biases* *arXiv*:[1308.3172](http://bit.ly/rlsax) 
 
 ## Introduction
 
